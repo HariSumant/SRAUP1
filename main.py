@@ -7,7 +7,7 @@ import plotly.graph_objs as go
 import pandas as pd
 
 
-data2=pd.read_csv('SRA_Slum.csv')
+data2=pd.read_csv('SRA_Slum (2).csv')
 #data3=pd.read_csv('cases_ulh.csv')
 #data4=pd.read_csv('updatecas.csv')
 
@@ -256,8 +256,8 @@ def update_confirmed(w_prabhag):
 @app.callback(Output('Shape_Area', 'figure'),
               [Input('w_prabhag','value')])
 def update_confirmed(w_prabhag):
-    prabhag_data_5 = data2.groupby(['WARD_2017'])[['AREA_SQM']].sum().reset_index()
-    area = data2[data2['WARD_2017'] == w_prabhag]['AREA_SQM'].sum()
+    prabhag_data_5 = data2.groupby(['WARD_2017'])[['AREA_SQKM']].sum().reset_index()
+    area = data2[data2['WARD_2017'] == w_prabhag]['AREA_SQKM'].sum()
 
     return {
         'data': [go.Indicator(
@@ -269,7 +269,7 @@ def update_confirmed(w_prabhag):
         )],
 
         'layout': go.Layout(
-            title={'text': 'Area(sq.m)',
+            title={'text': 'Area(sq.km)',
                    'y': 1,
                    'x': 0.5,
                    'xanchor': 'center',
